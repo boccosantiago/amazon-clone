@@ -10,8 +10,7 @@
 .header__logo {
   width: 90px;
   object-fit: contain;
-  margin: 15px 15px 0 15px;
-  margin-top: 15px;
+  margin: 20px 15px 0 15px;
 }
 .header__search {
   display: flex;
