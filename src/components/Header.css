@@ -10,8 +10,8 @@
 .header__logo {
   width: 90px;
   object-fit: contain;
-  margin: 0 20px;
-  margin-top: 12px;
+  margin: 15px 15px 0 15px;
+  margin-top: 15px;
 }
 .header__search {
   display: flex;
@@ -58,8 +58,16 @@
   display: flex;
   align-items: center;
   color: white;
+  position: relative;
+  text-align: center;
 }
 
 .header__cartCount {
-  margin: 0 10px;
+  color: rgb(35, 29, 84);
+  position: absolute;
+  right: 10.5px;
+  font-size: small;
+  top: -9px;
+  text-align: center;
+  width: 14px;
 }
