@@ -4,6 +4,20 @@ html,
 body {
   margin: 0;
   font-family: "Source Sans Pro", sans-serif;
-  background-color: rgb(237, 237, 237);
+  background: rgb(237, 237, 237);
   min-width: 500px;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+button:active {
+  transform: scale(0.98);
+  transition: all 0.1s;
 }

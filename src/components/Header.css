@@ -22,8 +22,10 @@
 .header__searchIcon {
   padding: 5px;
   height: 22.5px !important;
-  background-color: #e8b26c;
+  background-color: rgb(255, 170, 0);
   border-radius: 0 5px 5px 0;
+  position: relative;
+  right: 4px;
 }
 
 .header__searchInput {
@@ -31,6 +33,11 @@
   height: 12px;
   border: none;
   width: 100%;
+}
+
+.header__searchInput:focus {
+  outline: none !important;
+  box-shadow: inset 0px 0px 0px 3px rgb(255, 170, 0);
 }
 
 .header__nav {
@@ -60,14 +67,15 @@
   color: white;
   position: relative;
   text-align: center;
+  padding-right: 5px;
 }
 
 .header__cartCount {
   color: rgb(35, 29, 84);
   position: absolute;
-  right: 10.5px;
+  right: 15px;
   font-size: small;
-  top: -9px;
+  top: 4px;
   text-align: center;
   width: 14px;
 }
