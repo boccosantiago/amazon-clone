@@ -38,6 +38,15 @@
   height: 30px;
   margin-bottom: 10px;
   width: 98%;
+  border-radius: 3px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+}
+
+.login__container > form > input:focus {
+  outline: none !important;
+  border: 1px solid rgb(219, 163, 52);
+  box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
 }
 
 .login__container > p {
