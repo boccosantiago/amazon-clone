@@ -1,22 +1,41 @@
-.home {
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1500px;
+.home__row {
+  display: grid;
+  grid-template-areas:
+    "product-1 product-1 product-1 product-2 product-2 product-2"
+    "product-3 product-3 product-4 product-4 product-5 product-5"
+    "product-6 product-6 product-6 product-6 product-6 product-6"
+    "product-7 product-7 product-8 product-8 product-9 product-9";
+}
+.product-1 {
+  grid-area: product-1;
+}
+.product-2 {
+  grid-area: product-2;
+}
+.product-3 {
+  grid-area: product-3;
+}
+.product-4 {
+  grid-area: product-4;
+}
+.product-5 {
+  grid-area: product-5;
+}
+.product-6 {
+  grid-area: product-6;
 }
 
-.home__row {
-  display: flex;
-  z-index: 1;
-  margin-left: 5px;
-  margin-right: 5px;
+.product-7 {
+  grid-area: product-7;
+}
+.product-8 {
+  grid-area: product-8;
 }
 
 .home__image {
   width: 100%;
   z-index: -1;
-  margin-bottom: -50px;
+  margin-bottom: -35px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   -webkit-mask-image: linear-gradient(
     to bottom,
@@ -27,4 +46,15 @@
 
 .home p {
   margin: 7px 0;
+}
+
+@media (max-width: 550px) {
+  .home__row {
+    display: grid;
+    grid-template-areas:
+      "product-1 product-1 product-2 product-2"
+      "product-3 product-3 product-4 product-4"
+      "product-5 product-5 product-6 product-6"
+      "product-7 product-7 product-8 product-8";
+  }
 }

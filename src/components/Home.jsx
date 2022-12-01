@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.css";
 import Product from "./Product";
 import products from "../products";
+import { getInputAdornmentUtilityClass } from "@mui/material";
 
 function Home() {
   return (
@@ -13,52 +14,19 @@ function Home() {
           alt=""
         />
         <div className="home__row">
-          <Product
-            id={products[0].id}
-            title={products[0].title}
-            price={products[0].price}
-            image={products[0].image}
-            rating={products[0].rating}
-          />
-          <Product
-            id={products[1].id}
-            title={products[1].title}
-            price={products[1].price}
-            image={products[1].image}
-            rating={products[1].rating}
-          />
-        </div>
-        <div className="home__row">
-          <Product
-            id={products[2].id}
-            title={products[2].title}
-            price={products[2].price}
-            image={products[2].image}
-            rating={products[2].rating}
-          />
-          <Product
-            id={products[3].id}
-            title={products[3].title}
-            price={products[3].price}
-            image={products[3].image}
-            rating={products[3].rating}
-          />
-          <Product
-            id={products[4].id}
-            title={products[4].title}
-            price={products[4].price}
-            image={products[4].image}
-            rating={products[4].rating}
-          />
-        </div>
-        <div className="home__row">
-          <Product
-            id={products[5].id}
-            title={products[5].title}
-            price={products[5].price}
-            image={products[5].image}
-            rating={products[5].rating}
-          />
+          {products.map((item, i) => {
+            return (
+              <Product
+                className={`product-${item.id}`}
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                price={item.price}
+                image={item.image}
+                rating={item.rating}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

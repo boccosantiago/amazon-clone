@@ -1,9 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import "./Product.css";
 
-function Product({ id, title, price, image, rating }) {
-  const [{ cart }, dispatch] = useStateValue();
+function Product({ id, title, price, image, rating, className }) {
+  const [{ cart, user }, dispatch] = useStateValue();
+
+  const navigate = useNavigate();
 
   const addToCart = () => {
     //dispatch the item into the data layer
@@ -20,7 +23,7 @@ function Product({ id, title, price, image, rating }) {
   };
 
   return (
-    <div className="product">
+    <div className={`${className} product`}>
       <p>{title}</p>
       <div className="product__info">
         <p className="product__price">

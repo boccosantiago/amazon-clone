@@ -44,11 +44,20 @@
   justify-content: space-evenly;
 }
 
+.header__nav > a {
+  text-decoration: none;
+}
+
 .header__option {
   display: flex;
   flex-direction: column;
   color: white;
-  margin: 0 10px;
+  border: 1px solid transparent;
+  padding: 8px;
+}
+
+.header__option:hover {
+  border: 1px solid white;
 }
 
 .header__optionLineOne {
