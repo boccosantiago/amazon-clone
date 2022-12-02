@@ -38,6 +38,12 @@ const reducer = (state, action) => {
         user: action.user,
       };
 
+    case "EMPTY_CART":
+      return {
+        ...state,
+        cart: [],
+      };
+
     default:
       return state;
   }

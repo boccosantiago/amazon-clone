@@ -2,25 +2,33 @@ import React, { useEffect, useState } from "react";
 import "./Payment.css";
 import { useStateValue } from "../StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import CurrencyFormat from "react-currency-format";
 import { getCartTotal } from "../reducer";
+import axios from "../axios/axios";
 
 function Payment() {
-  const [{ user, cart }] = useStateValue();
+  const [{ cart, user }, dispatch] = useStateValue();
   const [disabled, setDisabled] = useState(true);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [succeded, setSucceded] = useState(false);
   const [clientSecret, setClienteSecret] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getClientSecret = async () => {
-      const response = await axios;
+      const response = await axios({
+        method: "post",
+        //stripe expects, the total in a currencies subunits (cents)
+        url: `/payments/create?total=${getCartTotal(cart) * 100}`,
+      });
+      setClienteSecret(response.data.clientSecret);
     };
     getClientSecret();
   }, [cart]);
+
+  console.log("A", clientSecret);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -28,7 +36,23 @@ function Payment() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true);
-    //const payload = await stripe;
+    const payload = await stripe
+      .confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      })
+      .then(({ paymentIntent }) => {
+        setSucceded(true);
+        setError(null);
+        setProcessing(false);
+
+        dispatch({
+          type: "EMPTY_CART",
+        });
+
+        navigate("/orders", { replace: true });
+      });
   };
 
   const handleChange = (event) => {
@@ -79,14 +103,7 @@ function Payment() {
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
               <div className="payment__priceContainer">
-                <CurrencyFormat
-                  renderText={(value) => <h3>Order Total: {value}</h3>}
-                  decimalScale={2}
-                  value={getCartTotal(cart)}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                />
+                <h3>Order Total: $ {getCartTotal(cart).toFixed(2)}</h3>
                 <button disabled={processing || disabled || succeded}>
                   <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                 </button>
