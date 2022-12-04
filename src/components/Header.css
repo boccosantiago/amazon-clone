@@ -27,11 +27,17 @@
   right: 4px;
 }
 
+.header__searchIcon:hover {
+  background-color: rgb(230, 153, 0);
+  cursor: pointer;
+}
+
 .header__searchInput {
   padding: 10px;
   height: 12px;
   border: none;
   width: 100%;
+  border-radius: 5px;
 }
 
 .header__searchInput:focus {

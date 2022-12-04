@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { getCartTotal } from "../reducer";
 import axios from "../axios/axios";
+import { db } from "../firebase";
 
 function Payment() {
   const [{ cart, user }, dispatch] = useStateValue();
@@ -43,6 +44,16 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            cart: cart,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         setSucceded(true);
         setError(null);
         setProcessing(false);
@@ -51,7 +62,7 @@ function Payment() {
           type: "EMPTY_CART",
         });
 
-        navigate("/orders", { replace: true });
+        navigate("/thanksforshopping", { replace: true });
       });
   };
 
@@ -105,7 +116,7 @@ function Payment() {
               <div className="payment__priceContainer">
                 <h3>Order Total: $ {getCartTotal(cart).toFixed(2)}</h3>
                 <button disabled={processing || disabled || succeded}>
-                  <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                  <span>{processing ? <p>Processing...</p> : "Buy Now"}</span>
                 </button>
               </div>
               {error && <div>{error}</div>}

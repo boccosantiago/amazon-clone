@@ -1,0 +1,8 @@
+.orders {
+  padding: 20px 80px;
+  min-height: 90vh;
+}
+
+.orders > h1 {
+  margin: 10px 0;
+}

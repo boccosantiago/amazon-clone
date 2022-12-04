@@ -2,7 +2,6 @@ import React from "react";
 import "./Home.css";
 import Product from "./Product";
 import products from "../products";
-import { getInputAdornmentUtilityClass } from "@mui/material";
 
 function Home() {
   return (

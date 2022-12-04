@@ -2,6 +2,12 @@
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
+  opacity: 1;
+}
+
+.fade {
+  transition: all 0.3s ease-out;
+  opacity: 0;
 }
 
 .checkoutProduct__info {
@@ -13,6 +19,7 @@
   margin-top: 10px;
   background: #f0c14b;
   border: 1px solid #a88734;
+  border-radius: 2px;
   color: #111;
 }
 

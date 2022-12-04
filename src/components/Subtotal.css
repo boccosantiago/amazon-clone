@@ -27,6 +27,7 @@
   margin-top: 10px;
   border: 1px solid #a88734;
   color: #111;
+  border-radius: 2px;
 }
 
 @media (max-width: 550px) {
