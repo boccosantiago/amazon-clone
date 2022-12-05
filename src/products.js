@@ -54,25 +54,3 @@ const products = [
 ];
 
 export default products;
-
-/* 
- 
-          <Product
-            id="49538094"
-            title=""
-            price={239.0}
-            rating={4}
-            image=""
-          />
-        </div>
-
-        <div className="home__row">
-          <Product
-            id="4903850"
-            title=""
-            price={199.99}
-            rating={3}
-            image=""
-          />
-         
-     */
