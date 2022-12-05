@@ -95,6 +95,27 @@
 }
 
 @media (max-width: 550px) {
+  .header {
+    height: 100px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+
+  .header__logo {
+    margin: 20px 0;
+  }
+  .header__optionCart {
+    height: 55px;
+  }
+  .header__cartCount {
+    top: 13px;
+  }
+  .header__search {
+    position: absolute;
+    top: 60px;
+    width: 90%;
+  }
+
   .your__prime {
     display: none;
   }

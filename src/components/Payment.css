@@ -66,3 +66,9 @@
   border-color: rgb(166, 166, 166);
   cursor: not-allowed;
 }
+
+@media (max-width: 650px) {
+  .payment__section {
+    flex-direction: column;
+  }
+}

@@ -5,15 +5,7 @@ import "animate.css";
 
 function CheckoutProduct({ buttonDisplay, id, image, title, price, rating }) {
   const [{ cart }, dispatch] = useStateValue();
-
   const [animate, setAnimate] = useState(false);
-
-  /*   useEffect(() => {
-    setAnimate(true);
-    setTimeout(() => {
-      setAnimate(false);
-    }, 500);
-  }, [cart]); */
 
   const removeFromCart = () => {
     setAnimate(true);
