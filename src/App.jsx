@@ -13,6 +13,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import Orders from "./components/Orders";
 import Footer from "./components/Footer";
 import Thanks from "./components/Thanks";
+import ScrollToTop from "./components/ScrollToTop";
 
 const promise = loadStripe(
   "pk_test_51MAFglE4cmcH3ST6Hi7vxgGBlf9wCeSpSGE8yalz0sQWDWEGjc15Z4JYQna4zJEy9A30liWYFm5gzOXQDGNGQwwl006bNLFhXN"
@@ -42,6 +43,7 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

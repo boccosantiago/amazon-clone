@@ -5,8 +5,8 @@ function Footer() {
   return (
     <div className="footer">
       <p>Conditions of Use Privacy Notice Interest-Based Ads © 1996-2022,</p>
-
       <p>Amazon.com, Inc. or its affiliates</p>
+      <p>Created by Santiago Bocco</p>
     </div>
   );
 }

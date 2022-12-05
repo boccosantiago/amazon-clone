@@ -7,7 +7,6 @@
   justify-content: center;
   width: fit-content;
   color: green;
-  border: 1px solid green;
   font-size: 2rem;
   border-radius: 5px;
   font-weight: 600;
@@ -15,4 +14,14 @@
   padding: 4px;
   box-shadow: inset 0px 0px 4px 1px rgb(15, 186, 0);
   margin-bottom: 30px;
+}
+
+@media (max-width: 650px) {
+  .thanks {
+    padding: 20px 20px;
+  }
+
+  .thanks__message {
+    align-items: flex-start;
+  }
 }
