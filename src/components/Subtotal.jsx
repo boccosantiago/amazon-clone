@@ -5,7 +5,7 @@ import { getCartTotal } from "../reducer";
 import { useNavigate } from "react-router-dom";
 
 function Subtotal() {
-  const [{ cart, user }, dispatch] = useStateValue();
+  const [{ cart, user }] = useStateValue();
   console.log("CARR", cart);
 
   const navigate = useNavigate();

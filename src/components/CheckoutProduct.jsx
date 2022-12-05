@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CheckoutProduct.css";
 import { useStateValue } from "../StateProvider";
-import "animate.css";
 
 function CheckoutProduct({ buttonDisplay, id, image, title, price, rating }) {
-  const [{ cart }, dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
   const [animate, setAnimate] = useState(false);
 
   const removeFromCart = () => {

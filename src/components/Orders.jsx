@@ -5,7 +5,7 @@ import "./Orders.css";
 import Order from "./Order";
 
 function Orders() {
-  const [{ cart, user }] = useStateValue();
+  const [{ user }] = useStateValue();
   const [orders, setOrders] = useState([]);
 
   useState(() => {

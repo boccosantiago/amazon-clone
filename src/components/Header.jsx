@@ -7,7 +7,7 @@ import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
 
 function Header() {
-  const [{ cart, user }, dispatch] = useStateValue();
+  const [{ cart, user }] = useStateValue();
 
   const handleAuth = () => {
     if (user) {

@@ -4,9 +4,7 @@ import { useStateValue } from "../StateProvider";
 import "./Product.css";
 
 function Product({ id, title, price, image, rating, className }) {
-  const [{ cart, user }, dispatch] = useStateValue();
-
-  const navigate = useNavigate();
+  const [dispatch] = useStateValue();
 
   const addToCart = () => {
     //dispatch the item into the data layer
