@@ -16,9 +16,8 @@
   border-bottom: 1px solid lightgray;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .checkout {
     flex-direction: column;
-    justify-content: center;
   }
 }

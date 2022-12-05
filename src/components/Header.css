@@ -93,3 +93,9 @@
   text-align: center;
   width: 14px;
 }
+
+@media (max-width: 550px) {
+  .your__prime {
+    display: none;
+  }
+}

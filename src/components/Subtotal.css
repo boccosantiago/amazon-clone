@@ -30,7 +30,7 @@
   border-radius: 2px;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .subtotal {
     width: auto;
     margin: 0 auto;

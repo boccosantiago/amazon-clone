@@ -1,26 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CheckoutProduct.css";
 import { useStateValue } from "../StateProvider";
 import "animate.css";
 
 function CheckoutProduct({ buttonDisplay, id, image, title, price, rating }) {
   const [{ cart }, dispatch] = useStateValue();
-  const [fade, setFade] = useState("");
+
+  const [animate, setAnimate] = useState(false);
+
+  /*   useEffect(() => {
+    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(false);
+    }, 500);
+  }, [cart]); */
 
   const removeFromCart = () => {
-    setFade("fade");
-
-    setTimeout(
+    setAnimate(true);
+    setTimeout(() => {
       dispatch({
         type: "REMOVE_FROM_CART",
         id: id,
-      }),
-      1000
-    );
+      });
+      setAnimate(false);
+    }, 500);
   };
 
   return (
-    <div className={`checkoutProduct ${fade}`}>
+    <div className={`checkoutProduct ${animate ? "animate" : ""}`}>
       <img src={image} alt="" className="checkoutProduct__image" />
       <div className="checkoutProduct__info">
         <p className="checkoutProduct__title">{title}</p>

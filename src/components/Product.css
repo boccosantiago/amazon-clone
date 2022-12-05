@@ -27,6 +27,7 @@
   border: 1px solid #a88734;
   margin-top: 10px;
   border-radius: 2px;
+  color: black;
 }
 .product__rating {
   display: flex;
