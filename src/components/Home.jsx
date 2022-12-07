@@ -4,8 +4,8 @@ import Product from "./Product";
 import products from "../products";
 
 function Home({ query }) {
-  const searchProducts = products.filter((item) =>
-    item.title.toLowerCase().includes(query)
+  const searchProducts = [...products].filter((item) =>
+    item.title.toLowerCase().includes(query.toLowerCase())
   );
 
   return (

@@ -7,7 +7,6 @@ import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
 
 function Header({ query, setQuery }) {
-  console.log(query);
   const [{ cart, user }] = useStateValue();
 
   const handleAuth = () => {
@@ -38,6 +37,7 @@ function Header({ query, setQuery }) {
           placeholder="search..."
           className="header__searchInput"
           onChange={(e) => setQuery(e.target.value)}
+          value={query}
         />
         <SearchIcon className="header__searchIcon" />
       </div>

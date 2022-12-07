@@ -40,10 +40,3 @@
 .home p {
   margin: 7px 0;
 }
-
-@media (max-width: 550px) {
-  .home__row {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-}
