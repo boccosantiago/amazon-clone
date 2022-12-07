@@ -18,7 +18,8 @@ const products = [
   },
   {
     id: "3",
-    title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+    title:
+      "Smart Watch for Women Men, Fitness Tracker Heart Rate/Sleep Monitor, Color Screen Fitness Watch Step/Calorie Counter, 25 Sport Modes IP68 Waterproof Activity Trackers, Smartwatch for Android iOS",
     price: 129.99,
     image:
       "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg",

@@ -18,6 +18,10 @@
   align-items: center;
   border-radius: 24px;
 }
+.header__search input {
+  font-size: 0.9em;
+}
+
 .header__searchIcon {
   padding: 5px;
   height: 22.5px !important;

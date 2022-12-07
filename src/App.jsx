@@ -1,10 +1,9 @@
-import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Checkout from "./components/Checkout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import Payment from "./components/Payment";
@@ -20,7 +19,8 @@ const promise = loadStripe(
 );
 
 function App() {
-  const [dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -44,9 +44,9 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <ScrollToTop />
-        <Header />
+        <Header setQuery={setQuery} query={query} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home query={query} />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
 

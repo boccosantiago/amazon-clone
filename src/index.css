@@ -16,6 +16,7 @@ p {
 button {
   cursor: pointer;
   transition: all 0.1s;
+  color: black;
 }
 
 button:active {

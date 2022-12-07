@@ -9,7 +9,17 @@
   margin: 10px;
   padding: 20px;
   min-width: 100px;
+  max-width: 250px;
 }
+
+.product:nth-child(2) {
+  max-width: 400px;
+}
+
+.product:nth-child(6) {
+  max-width: 650px;
+}
+
 .product > img {
   max-height: 150px;
   width: 100%;
@@ -33,4 +43,11 @@
   display: flex;
   width: 100%;
   justify-content: left;
+}
+
+@media (max-width: 650px) {
+  .product,
+  .product:nth-child(n) {
+    max-width: 100%;
+  }
 }

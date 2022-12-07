@@ -3,7 +3,11 @@ import "./Home.css";
 import Product from "./Product";
 import products from "../products";
 
-function Home() {
+function Home({ query }) {
+  const searchProducts = products.filter((item) =>
+    item.title.toLowerCase().includes(query)
+  );
+
   return (
     <div className="home">
       <div className="home__container">
@@ -13,10 +17,9 @@ function Home() {
           alt=""
         />
         <div className="home__row">
-          {products.map((item, i) => {
+          {searchProducts.map((item) => {
             return (
               <Product
-                className={`product-${item.id}`}
                 key={item.id}
                 id={item.id}
                 title={item.title}

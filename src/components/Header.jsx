@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
 
-function Header() {
+function Header({ query, setQuery }) {
+  console.log(query);
   const [{ cart, user }] = useStateValue();
 
   const handleAuth = () => {
@@ -32,7 +33,12 @@ function Header() {
       </Link>
 
       <div className="header__search">
-        <input type="text" className="header__searchInput" />
+        <input
+          type="text"
+          placeholder="search..."
+          className="header__searchInput"
+          onChange={(e) => setQuery(e.target.value)}
+        />
         <SearchIcon className="header__searchIcon" />
       </div>
       <div className="header__nav">
