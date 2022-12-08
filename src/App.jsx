@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import { useEffect } from "react";
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "./providers/StateProvider";
 import { auth } from "./firebase";
 import AppRoutes from "./routes/AppRoutes";
 
@@ -9,8 +9,6 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log("this user is:", authUser);
-
       if (authUser) {
         dispatch({
           type: "SET_USER",

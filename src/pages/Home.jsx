@@ -2,10 +2,13 @@ import React from "react";
 import "./Home.css";
 import Product from "../components/Product";
 import products from "../products";
+import { useSearchContext } from "../providers/searchProvider";
 
-function Home({ query }) {
+function Home() {
+  const search = useSearchContext();
+
   const searchProducts = [...products].filter((item) =>
-    item.title.toLowerCase().includes(query.toLowerCase())
+    item.title.toLowerCase().includes(search.query.toLowerCase())
   );
 
   return (
@@ -17,18 +20,22 @@ function Home({ query }) {
           alt=""
         />
         <div className="home__row">
-          {searchProducts.map((item) => {
-            return (
-              <Product
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                price={item.price}
-                image={item.image}
-                rating={item.rating}
-              />
-            );
-          })}
+          {searchProducts.length > 0 ? (
+            searchProducts.map((item) => {
+              return (
+                <Product
+                  key={item.id}
+                  id={item.id}
+                  title={item.title}
+                  price={item.price}
+                  image={item.image}
+                  rating={item.rating}
+                />
+              );
+            })
+          ) : (
+            <h2>No matches for this search criteria.</h2>
+          )}
         </div>
       </div>
     </div>

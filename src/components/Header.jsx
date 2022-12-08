@@ -3,11 +3,13 @@ import "./Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
-import { useStateValue } from "../StateProvider";
+import { useStateValue } from "../providers/StateProvider";
 import { auth } from "../firebase";
+import { useSearchContext } from "../providers/searchProvider";
 
-function Header({ query, setQuery }) {
+function Header() {
   const [{ cart, user }] = useStateValue();
+  const { query, setQuery } = useSearchContext();
 
   const handleAuth = () => {
     if (user) {
@@ -25,6 +27,7 @@ function Header({ query, setQuery }) {
     <div className="header">
       <Link to="/">
         <img
+          onClick={() => setQuery("")}
           className="header__logo"
           src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
           alt="Amazon-logo"

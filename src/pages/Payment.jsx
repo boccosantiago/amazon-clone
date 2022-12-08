@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Payment.css";
-import { useStateValue } from "../StateProvider";
+import { useStateValue } from "../providers/StateProvider";
 import CheckoutProduct from "../components/CheckoutProduct";
 import { Link, useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
@@ -28,8 +28,6 @@ function Payment() {
     };
     getClientSecret();
   }, [cart]);
-
-  console.log("A", clientSecret);
 
   const stripe = useStripe();
   const elements = useElements();

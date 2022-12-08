@@ -1,5 +1,5 @@
 import React from "react";
-import { useStateValue } from "../StateProvider";
+import { useStateValue } from "../providers/StateProvider";
 import "./Product.css";
 
 function Product({ id, title, price, image, rating, className }) {
