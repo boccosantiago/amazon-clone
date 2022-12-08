@@ -1,26 +1,11 @@
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Checkout from "./components/Checkout";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/Login";
-import { useState, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { useEffect } from "react";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
-import Payment from "./components/Payment";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import Orders from "./components/Orders";
-import Footer from "./components/Footer";
-import Thanks from "./components/Thanks";
-import ScrollToTop from "./components/ScrollToTop";
-
-const promise = loadStripe(
-  "pk_test_51MAFglE4cmcH3ST6Hi7vxgGBlf9wCeSpSGE8yalz0sQWDWEGjc15Z4JYQna4zJEy9A30liWYFm5gzOXQDGNGQwwl006bNLFhXN"
-);
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   const [, dispatch] = useStateValue();
-  const [query, setQuery] = useState("");
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -43,25 +28,7 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <ScrollToTop />
-        <Header setQuery={setQuery} query={query} />
-        <Routes>
-          <Route path="/" element={<Home query={query} />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/login" element={<Login />} />
-
-          <Route
-            path="/payment"
-            element={
-              <Elements stripe={promise}>
-                <Payment />
-              </Elements>
-            }
-          />
-          <Route path="/thanksforshopping" element={<Thanks />} />
-          <Route path="/orders" element={<Orders />} />
-        </Routes>
-        <Footer />
+        <AppRoutes />
       </BrowserRouter>
     </div>
   );

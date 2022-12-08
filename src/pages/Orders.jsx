@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { db } from "../firebase";
 import { useStateValue } from "../StateProvider";
 import "./Orders.css";
-import Order from "./Order";
+import Order from "../components/Order";
 
 function Orders() {
   const [{ user }] = useStateValue();
